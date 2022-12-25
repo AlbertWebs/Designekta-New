@@ -1,0 +1,442 @@
+@extends('front.master')
+@section('content')
+<style>
+	#text {
+	display: inline-block;
+	color: #2980b9;
+	border-right: 3px solid #2980b9;
+}
+</style>
+    <!-- Hero -->
+	<section id="slider" class="hero p-0">
+		<div class="swiper-container no-slider animation slider-h-100">
+			<div class="swiper-wrapper">
+
+				<!-- Item 1 -->
+
+				<div class="swiper-slide slide-center swiper-slide-active" style="width: 1345px;">
+
+					
+					<video type="video/mp4" class="full-image" data-mask="80" src="{{asset('theme/assets/videos/videoplayback.webm')}}" loop="true" autoplay muted></video>
+					<div class="slide-content row">
+						<div class="col-12 d-flex inner">
+							<div class="center align-self-center text-center">
+								<h1 data-aos="zoom-out-up" data-aos-delay="400" class="title effect-static-text aos-init aos-animate home-welcome">Number #1.<br> Custom Web Designers.</h1>
+								<p data-aos="zoom-out-up" data-aos-delay="800" class="description ml-auto mr-auto aos-init aos-animate">We work with a Focus on Creativity combining Design and Imagination to achieve Desired Results</p>
+								<div id="text"></div>
+								<!--<a href="#contact" data-aos="zoom-out-up" data-aos-delay="1200" class="smooth-anchor ml-auto mr-auto mt-5 btn primary-button aos-init aos-animate"><i class="icon-speech"></i>GET STARTED</a>-->
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+	</section>
+
+	<!-- Skills -->
+	<section id="skills" class="bg-white counter skills">
+		<div class="container">
+			<div class="row text-center intro">
+				<div class="col-12">
+					<h2 class="super">Web Design Solutions</h2>
+					<p class="text-max-800">
+						Designekta Studios is a professional web design company based in Nairobi. We Provide digital solutions for all size of businesses. Let us help you build an online presence with our team of experts at very affordable rates
+						<br><br>
+						Whether you are starting a new brand from scratch or revamping your existing brand, Looking to rank higher in search engines with our SEO package, Our team is ready to give the best expertise to deliver to your expectation and beyond
+						<br><br>
+						We believe that any requirements can be met with the right strategies and practices, your unique project is very much achievable to your expectation and beyond
+					</p>
+				</div>
+			</div>
+			<div data-aos-id="counter" data-aos="fade-up" data-aos-delay="200" class="row justify-content-center text-center items">
+				<div class="col-12 col-sm-6 col-md-6 col-lg-3 item">
+					<div data-percent="100" class="radial">
+						<span></span>
+					</div>
+					<h4>Web Design</h4>
+				</div>
+				<div class="col-12 col-sm-6 col-md-6 col-lg-3 item">
+					<div data-percent="100" class="radial">
+						<span></span>
+					</div>
+					<h4>Web Graphics</h4>
+				</div>
+				<div class="col-12 col-sm-6 col-md-6 col-lg-3 item">
+					<div data-percent="100" class="radial">
+						<span></span>
+					</div>
+					<h4>E-commerce Solutions</h4>
+				</div>
+				<div class="col-12 col-sm-6 col-md-6 col-lg-3 item">
+					<div data-percent="100" class="radial">
+						<span></span>
+					</div>
+					<h4>Domain Registration & Web Hosting</h4>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	 <!-- Services -->
+	 <section id="services" class="section-1 offers">
+		<div class="container">
+			<div class="row intro">
+				<div class="col-12 col-md-9 align-self-center text-center text-md-left">
+					<h2 class="featured">Our Solutions</h2>
+					<p>Focused on results we seek to raise the level of our clients.</p>
+				</div>
+				<div class="col-12 col-md-3 align-self-end">
+					<a href="#contact" class="smooth-anchor btn mx-auto mr-md-0 ml-md-auto primary-button"><i class="icon-speech"></i>GET IN TOUCH</a>
+				</div>
+			</div>
+			<div class="row justify-content-center text-center items">
+				<?php $Services = DB::table('services')->get(); ?>
+				@foreach ($Services as $service)
+				<div class="col-12 col-md-6 item">
+					<div class="card featured">
+						<i class="icon {{$service->icons}}"></i>
+						<h4>{{$service->title}}</h4>
+						<p class="text-black">{{$service->meta}}</p>
+						<a href="{{url('/')}}/service/{{$service->slung}}"><i class="btn-icon icon-arrow-right-circle"></i></a>
+					</div>
+				</div>
+				@endforeach
+			</div>
+		</div>
+	</section>
+
+	<?php $Portfolio = DB::table('portfolio')->where('service','1')->where('home','1')->OrderBy('id','DESC')->Limit('12')->get(); ?>
+	<!-- fanfact-area end -->
+	@if($Portfolio->isEmpty())
+
+	@else
+	 <!-- Portfolio -->
+	 <section id="portfolio-grid" class="section-1 showcase portfolio blog-grid filter-section bg-white">
+		<div class="overflow-holder">
+			<div class="container">
+				
+				<div class="row text-center intro">
+					<div class="container wow fadeInUp">
+						<h6>PORTFOLIO OF OUR RECENT PROJECTS.</h6>
+						<h2 class="heading-1">Take a look at our recent and featured projects.</h2>
+						<div class="row justify-content-center">
+						  <div class="col-xl-8 col-lg-10">
+							<p class="big">
+								Our Team of Creative experts; Graphic Designers, Web Designers and Developers is dedicated to delivering High Quality, Vibrant and functional Websites. Below are some of our recently completed Projects.
+							</p>
+							<a style="margin:0 auto" class="btn primary-button" href="{{url('/')}}/our-portfolio"> <i class="icon-briefcase"></i> View More<span class="button-overlay"></span></a>
+						  </div>
+						</div>
+					  </div>
+				</div>
+		
+				<div class="row items filter-items">
+					@foreach ($Portfolio as $Portfolio)
+					<div style="border-radius:10px !important" class="col-12 col-md-6 col-lg-4 item filter-item" data-groups='["technology"]'>
+						<div style="border-radius:10px;" class="row card p-0 text-center">
+							<div class="gallery" style="border-radius:10px;">
+								<a href="{{url('/')}}/uploads/portfolio/{{$Portfolio->image_one}}" class="image-over">
+									<img src="{{url('/')}}/uploads/portfolio/{{$Portfolio->image_one}}" alt="{{$Portfolio->title}}">
+								</a>
+							</div>
+							<div class="card-caption col-12 p-0">
+								<div class="gallery">
+									<a href="{{url('/')}}/uploads/portfolio/{{$Portfolio->image_one}}" class="">
+										<div class="card-body">
+											<h4 class="m-0">{{$Portfolio->title}}</h4>
+										</div>
+									</a>
+								</div>
+								<div class="card-footer d-lg-flex align-items-center justify-content-center">
+									<p><a target="_blank" href="{{$Portfolio->link}}" data-aos="zoom-out-up" data-aos-delay="1200" class="ml-auto mr-auto mt-5 btn primary-button aos-init aos-animate"><i class="icon-globe"></i>Visit Site</a></p>
+								</div>
+							</div>
+						</div> 
+					</div>
+					@endforeach
+				
+					
+
+				 
+				
+					<div class="col-1 filter-sizer"></div>
+					
+				</div>
+				<a style="margin:0 auto" class="btn primary-button" href="{{url('/')}}/our-portfolio"> <i class="icon-briefcase"></i> View More<span class="button-overlay"></span></a>
+			</div>
+		</div>
+	</section>
+	@endif
+
+
+	<!-- Contact -->
+	<section id="contact" class="section-6 odd form">
+		<div class="container">
+			<form action="{{url('/')}}/submitMessage" method="POST" id="leverage-form" class="multi-step-form">
+				{{csrf_field()}}
+					<style>
+					.hide-robot{
+						display:none;
+					}
+					</style>
+				<input name="firstnamer" type="text" id="firstnamer" class="hide-robot">
+				<input type="hidden" name="section" value="leverage_form">
+
+				<input type="hidden" name="reCAPTCHA">
+				<!-- Remove this field if you want to disable recaptcha -->
+
+				<div class="row">
+					<div class="col-12 col-md-6 align-self-start text-center text-md-left">
+
+						<!-- Success Message -->
+						<div class="row success message">
+							<div class="col-12 p-0">
+								<div class="wait">
+									<div class="spinner-grow" role="status">
+										<span class="sr-only">Loading</span>
+									</div>
+									<h3 class="sending">SENDING</h3>
+								</div>
+								<div class="done">
+									<i class="icon bigger icon-check"></i>
+									<h3>Your message was sent successful. Thanks.</h3>						
+									<a href="#" class="btn mx-auto primary-button">
+										<i class="icon-refresh"></i>
+										REFRESH
+									</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Steps Message -->
+						<div class="row intro form-content">
+							<div class="col-12 p-0">
+
+								<!-- Step Title -->
+								<div class="step-title">
+									<h2 class="super effect-static-text">Let's Talk?</h2>
+									<p>Whatever you have in mind, Designekta Studios is more than ready to transfrom it to reality</p>
+								</div>
+
+								<!-- Step Title -->
+								<div class="step-title">
+									<h2 class="super effect-static-text">Almost There</h2>
+									<p>We need some more important information to better understand how we work something in the best possible way.</p>
+								</div>
+
+								<!-- Step Title -->
+								<div class="step-title">
+									<h2 class="super effect-static-text">Are you Ready?</h2>
+									<p>Tell us a little about the project you need to create. This is valuable so that we can direct you to the ideal team.</p>
+								</div>
+
+							</div>
+						</div>
+
+						<!-- Steps Group -->
+						<div class="row text-center form-content">
+							<div class="col-12 p-0">
+								<ul class="progressbar">
+									<li>Personal Details</li>
+									<li>Company Budget</li>
+									<li>Project Info</li>
+								</ul>
+
+								<!-- Group 1 -->
+								<fieldset class="step-group">
+									<div class="row">
+										<div class="col-12 input-group p-0">
+											<input type="email" name="email" data-minlength="3" class="form-control field-email" placeholder="Email">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 input-group p-0">
+											<input type="text" name="name" data-minlength="3" class="form-control field-name" placeholder="Name">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 input-group p-0">
+											<input type="text" name="phone" data-minlength="3" class="form-control field-phone" placeholder="Phone">
+										</div>
+									</div>
+									<div class="col-12 input-group p-0">
+										<a class="step-next btn primary-button">NEXT<i class="icon-arrow-right-circle left"></i></a>
+									</div>
+								</fieldset>
+
+								<!-- Group 2 -->
+								<fieldset class="step-group">
+									<div class="row">
+										<div class="col-12 input-group p-0">
+											<input type="text" name="company" data-minlength="3" class="form-control field-company" placeholder="Company">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 input-group p-0">
+											<input type="text" name="manager" data-minlength="3" class="form-control field-manager" placeholder="Manager">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 input-group p-0">
+											<i class="icon-arrow-down"></i>
+											<select required name="budget" data-minlength="1" class="form-control field-budget">
+												<option value="" selected disabled>What's your budget range?</option>
+												<option>Less than $300</option>
+												<option>$300 — $600</option>
+												<option>$600 — $1000</option>
+												<option>$1000 — $2500</option>
+												<option>$2500+</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-12 input-group p-0 d-flex justify-content-between justify-content-md-start">
+										<a class="step-prev btn primary-button mr-4"><i class="icon-arrow-left-circle"></i>PREV</a>
+										<a class="step-next btn primary-button">NEXT<i class="icon-arrow-right-circle left"></i></a>
+									</div>
+								</fieldset>
+
+								<!-- Group 3 -->
+								<fieldset class="step-group">
+									<div class="row">
+										<div class="col-12 input-group p-0">
+											<textarea name="message" data-minlength="3" class="form-control field-message" placeholder="Message" required></textarea>
+										</div>
+									</div>
+									<div class="col-12 input-group p-0 d-flex justify-content-between justify-content-md-start">
+										<a class="step-prev btn primary-button mr-4"><i class="icon-arrow-left-circle"></i>PREV</a>
+										<a class="step-next btn primary-button">SEND<i class="icon-arrow-right-circle left"></i></a>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+					</div>
+
+					<div class="content-images col-12 col-md-6 pl-md-5 d-none d-md-block">
+
+						<!-- Step 1 -->
+						<div style="border-radius:10px !important;" class="gallery">
+							<a class="step-image" data-poster="{{url('/')}}/uploads/DN.jpg" href="https://www.youtube.com/watch?v=qXfd2kK3hgQ">
+								<i class="play-video icon-control-play"></i>
+								<div class="mask-radius"></div>
+								<!-- Particles -->
+					            <div id="particles-1" class="particles full-image" data-particle="bubble" data-mask="30"><canvas class="particles-js-canvas-el" width="1345" height="271" style="width: 100%; height: 100%;"></canvas></div>
+								<img src="{{url('/')}}/uploads/DN.jpg" class="fit-image" alt="Designekta Studios">
+							</a>
+						</div>
+
+						<!-- Step 2 -->
+						<div style="border-radius:10px !important;" class="gallery">
+							<a class="step-image" href="{{asset('theme/assets/images/about-3.jpg')}}">
+								<div id="particles-1" class="particles full-image" data-particle="bubble" data-mask="30"><canvas class="particles-js-canvas-el" width="1345" height="271" style="width: 100%; height: 100%;"></canvas></div>
+								<img src="{{url('/')}}/uploads/DN.jpg" class="fit-image" alt="Designekta Studios">
+							</a>
+						</div>
+
+						<!-- Step 3 -->
+						<div class="gallery">
+							<a class="step-image" href="{{url('/')}}/uploads/DN.jpg">
+								<div id="particles-1" class="particles full-image" data-particle="bubble" data-mask="30"><canvas class="particles-js-canvas-el" width="1345" height="271" style="width: 100%; height: 100%;"></canvas></div>
+								<img src="{{url('/')}}/uploads/DN.jpg" class="fit-image" alt="Designekta Studios">
+							</a>
+						</div>
+
+						<!-- Step 4 -->
+						<div style="border-radius:10px !important;" class="gallery">
+							<a class="step-image" href="{{url('/')}}/uploads/DN.jpg">
+								<img src="{{url('/')}}/uploads/DN.jpg" class="fit-image" alt="Contact Us">
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+	
+	<!-- Get -->
+	<section id="get" class="section-5 hero p-0">
+		<div class="swiper-container no-slider animation slider-h-75">
+			<div class="swiper-wrapper">
+
+				<!-- Item 1 -->
+				<div class="swiper-slide slide-center">
+
+					<video type="video/mp4" class="full-image" data-mask="10" src="{{asset('theme/assets/videos/ink.mp4')}}" autoplay muted loop></video> 
+
+					<div class="slide-content row">
+						<div class="col-12 d-flex justify-content-end inner">
+							<div class="right text-center text-md-left">
+								<h2 data-aos="zoom-out-up" data-aos-delay="400" class="title effect-static-text">Let's Build <br>Something</h2>
+								<div class="d-sm-inline-flex mt-3">
+									<a href="#contact" data-aos="zoom-out-up" data-aos-delay="1200" class="smooth-anchor ml-auto mr-auto mr-md-0 mt-4 mt-sm-0 btn primary-button"><i class="icon-rocket"></i>CONTACT US</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+	</section>
+
+  <style>
+		.grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+			grid-gap: 1rem;
+		> div {
+			background: black;
+			padding: 1rem;
+			display: grid;
+			place-items: center;
+			
+			&::before {
+			// for apsect ratio
+			content: "";
+			display: block;
+			padding-bottom: 100%;
+			grid-area: 1 / 1 / 2 / 2;
+			}
+			img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			grid-area: 1 / 1 / 2 / 2;
+			
+			}
+		}
+	}
+
+@media(max-width: 978px) {
+			img {
+			width: 100% !important;
+			}
+		}
+
+	</style>
+	<section id="partner" class="section-2 odd">
+		<div class="overflow-holder">
+			<div class="container">
+				{{--  --}}
+
+				<div class="row text-center intro">
+					<div class="col-12">
+						<h2 class="super effect-static-text">Our Clients</h2>
+					</div>
+				</div>
+				{{--  --}}
+				<div class="grid">
+					<?php $ListOfClients = DB::table('listofclients')->orderBy('order','asc')->get(); ?>
+					@foreach($ListOfClients as $clients)
+					<a  href="{{$clients->link}}" title="{{$clients->name}}"><div style="border:2px solid #ffffff !important; border-radius:5px;"><img src="{{url('/')}}/uploads/clients/{{$clients->image}}" alt=""></div>
+					@endforeach
+				  </div>
+			</div>
+			
+		</div>
+	</section>
+@endsection
