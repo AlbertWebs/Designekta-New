@@ -60,20 +60,20 @@ class HomeController extends Controller
         $Services = Services::all();
         $Testimonial = Testimonial::all();
         $SiteSettings = DB::table('sitesettings')->get();
-        $Service_RenderedOne = DB::table('service_delivered')->where('cat','1')->get();
-        $Service_RenderedOneCount = count($Service_RenderedOne);
-        $Service_RenderedTwo = DB::table('service_delivered')->where('cat','2')->get();
-        $Service_RenderedTwoCount = count($Service_RenderedTwo);
-        $Service_RenderedThree = DB::table('service_delivered')->where('cat','3')->get();
-        $Service_RenderedThreeCount = count($Service_RenderedThree);
-        $Service_RenderedFour = DB::table('service_delivered')->where('cat','4')->get();
-        $Service_RenderedFourCount = count($Service_RenderedFour);
-        $Service_RenderedFive = DB::table('service_delivered')->where('cat','5')->get();
-        $Service_RenderedFiveCount = count($Service_RenderedFive);
-        $Service_RenderedSix = DB::table('service_delivered')->where('cat','6')->get();
-        $Service_RenderedSixCount = count($Service_RenderedSix);
+        // $Service_RenderedOne = DB::table('service_delivered')->where('cat','1')->get();
+        // $Service_RenderedOneCount = count($Service_RenderedOne);
+        // $Service_RenderedTwo = DB::table('service_delivered')->where('cat','2')->get();
+        // $Service_RenderedTwoCount = count($Service_RenderedTwo);
+        // $Service_RenderedThree = DB::table('service_delivered')->where('cat','3')->get();
+        // $Service_RenderedThreeCount = count($Service_RenderedThree);
+        // $Service_RenderedFour = DB::table('service_delivered')->where('cat','4')->get();
+        // $Service_RenderedFourCount = count($Service_RenderedFour);
+        // $Service_RenderedFive = DB::table('service_delivered')->where('cat','5')->get();
+        // $Service_RenderedFiveCount = count($Service_RenderedFive);
+        // $Service_RenderedSix = DB::table('service_delivered')->where('cat','6')->get();
+        // $Service_RenderedSixCount = count($Service_RenderedSix);
         $page_title = 'Custom Web and Graphic Designers in Kenya';
-        return view('front.index',compact('Blog','Daily','SiteSettings','page_title','Testimonial','Slider','Services','Portfolio','Service_RenderedOne','Service_RenderedTwo','Service_RenderedThree','Service_RenderedFour','Service_RenderedFive','Service_RenderedSix','Service_RenderedOneCount','Service_RenderedTwoCount','Service_RenderedThreeCount','Service_RenderedFourCount','Service_RenderedFiveCount','Service_RenderedSixCount'));
+        return view('front.index',compact('Blog','Daily','SiteSettings','page_title','Testimonial','Slider','Services','Portfolio'));
     }
 
 
