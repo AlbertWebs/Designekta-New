@@ -1476,12 +1476,7 @@ public function add_Portfolio(Request $request){
 
     $path = 'uploads/portfolio';
     if(isset($request->image_one)){
-        $fileSize = $request->file('image_one')->getClientSize();
-            if($fileSize>=1800000){
-            Session::flash('message', "File Exceeded the maximum allowed Size");
-            Session::flash('messageError', "An error occured, You may have exceeded the maximum size for an image you uploaded");
-            return Redirect::back();
-            }else{
+
 
             $file = $request->file('image_one');
             $filename = str_replace(' ', '', $file->getClientOriginalName());
@@ -1491,9 +1486,7 @@ public function add_Portfolio(Request $request){
             $image_one = str_replace(' ', '',$image_main_temp);
             $file->move($path, $image_one);
             }
-    }else{
-        $image_one = $request->pro_img_cheat;
-    }
+
 
     if(isset($request->image_two)){
         $fileSize = $request->file('image_two')->getClientSize();
