@@ -39,7 +39,7 @@
          "https://www.instagram.com/designekta/",
          "https://www.linkedin.com/company/designekta-studios",
          "https://twitter.com/designekta254",
-         ""
+         "https://studio.youtube.com/channel/UCG2AThuW-GP8glx-W7z2B0A"
       ],
       "logo": "https://designekta.com/uploads/DN.jpg",
       "priceRange": "$$$$",
