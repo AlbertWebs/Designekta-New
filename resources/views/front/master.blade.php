@@ -2,7 +2,7 @@
 
 <html lang="en">
 <?php $SiteSettings = DB::table('sitesettings')->get(); ?>
-@foreach ($SiteSettings as $Settings)   
+@foreach ($SiteSettings as $Settings)
 <head>
 
         <!-- ==============================================
@@ -15,8 +15,8 @@
         <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
 
         <title>Designekta Studios || <?php echo $page_title; ?></title>
-    
-  
+
+
         <meta name="google-site-verification" content="e8c2n1NdxeVcgx7pLdZ3mrUO4aZq8o7_UrJbdtGL62s" />
         <!-- SEO META -->
         <meta name="description" content="Designekta studios is a Custom Web Design firm that deals in Web Development and Graphics Design, E-commerce Solutions, Branding and Web Hosting" />
@@ -45,12 +45,12 @@
         {{-- OG --}}
         <!-- SEO META -->
         <?php $Sitesettings = DB::table('sitesettings')->get(); ?>@foreach($Sitesettings as $Settings)
-        
+
         @endforeach
         <!-- Place favicon.ico in the root directory -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="facebook-domain-verification" content="h92tx2f53zusy8921c6cmnwzo36q8m" />
-       
+
 
         <!-- ==============================================
         Favicons
@@ -90,7 +90,7 @@
         <link rel="stylesheet" href="{{asset('theme/assets/css/default.css')}}">
         <link rel="stylesheet" href="{{asset('theme/assets/css/theme-indigo.css')}}">
 
-     
+
           <!--Start of Tawk.to Script-->
           <script type="text/javascript">
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -104,17 +104,17 @@
             })();
             </script>
             <!--End of Tawk.to Script-->
-            
+
             <!-- Global site tag (gtag.js) - Google Analytics -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150674747-1"></script>
             <script>
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-            
+
               gtag('config', 'UA-150674747-1');
             </script>
-     
+
 
         <!-- ==============================================
         Theme Settings
@@ -125,18 +125,18 @@
                 --nav-item-color: #f5f5f5;
                 --top-nav-item-color: #f5f5f5;
                 --hero-bg-color: #000000;
-                
+
                 --section-1-bg-color: #e5e5e5;
                 --section-2-bg-color: #111111;
                 --section-3-bg-color: #e5e5e5;
                 --section-4-bg-color: #111111;
                 --section-5-bg-color: #e5e5e5;
                 --section-6-bg-color: #111111;
-                
+
                 --footer-bg-color: #191919;
             }
         </style>
-        
+
     </head>
 
     <body>
@@ -151,7 +151,7 @@
                     <!-- Navbar Brand-->
                     <a class="navbar-brand" href="{{url('/')}}">
                         Designekta <i class="leverage-2-0">Studios</i>
-                    
+
                     </a>
 
                     <!-- Nav holder -->
@@ -161,25 +161,25 @@
                     <ul class="navbar-nav items">
                         <li class="nav-item dropdown">
                             <a href="#slider" class="smooth-anchor nav-link">Home</a>
-                          
+
                         </li>
                         <li class="nav-item dropdown">
                             <a href="#skills" class="smooth-anchor  nav-link">About Us</a>
-                          
+
                         </li>
                         <li class="nav-item dropdown">
                             <a href="#services" class="smooth-anchor nav-link">Services</a>
-                          
+
                         </li>
                         <li class="nav-item dropdown">
                             <a href="#portfolio-grid" class="smooth-anchor nav-link">Portfolio</a>
-                          
+
                         </li>
                         <li class="nav-item dropdown">
                             <a href="#contact" class="smooth-anchor nav-link">Contact Us</a>
-                          
+
                         </li>
-                        
+
                     </ul>
 
                     <!-- Navbar Icons -->
@@ -237,8 +237,8 @@
                                 <div class="branding col-12 p-3 text-center text-lg-left item">
                                     <div class="brand">
                                         <a href="{{url('/')}}" class="logo">
-                                            Designekta Studios.                                 
-                                           
+                                            Designekta Studios.
+
                                         </a>
                                     </div>
                                     <p>Authentic and innovative.<br>Built to the smallest detail<br>with a focus on usability<br>and performance.</p>
@@ -259,7 +259,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-9 p-0">                            
+                        <div class="col-12 col-lg-9 p-0">
                             <div class="row">
                                 <div class="col-12 col-lg-3 p-3 text-center text-lg-left item">
                                     <h4 class="title">Get in Touch</h4>
@@ -294,10 +294,10 @@
                                         @foreach ($Services as $Services)
                                         <li class="nav-item">
                                             <a href="{{url('/')}}/service/{{$Services->slung}}" class="nav-link">{{$Services->title}}</a>
-                                        </li> 
+                                        </li>
                                         @endforeach
-                                        
-                                        
+
+
                                     </ul>
                                 </div>
                                 <div class="col-12 col-lg-4 p-3 text-center text-lg-left item">
@@ -309,7 +309,7 @@
                                     {{-- <a href="" class="badge tag">Refund Policy</a> --}}
                                     <a href="{{url('/')}}/cancellation-policy" class="badge tag">Cancellation Policy</a>
                                     <a href="{{url('/')}}/knowledge-base" class="badge tag">Knowledge Base</a>
-                                  
+
                                 </div>
                             </div>
                             <div class="row" style="margin-top:80px;">
@@ -318,14 +318,14 @@
                         </div>
                     </div>
                 </div>
-                
+
             </section>
 
             <!-- Copyright -->
             <section id="copyright" class="p-3 copyright">
                 <div class="container">
                     <div class="row">
-                       
+
                         <div class="col-12 col-md-12 p-3 text-center text-center">
                             <p>Copyright © 2021 <a href="https://designekta.com" target="_blank"> Designekta Enterprises Limited</a>  All Rights Reserved</p>
                         </div>
@@ -337,7 +337,7 @@
 
         <!-- #region Global ============================ -->
 
-       
+
 
         <!-- Modal [responsive menu] -->
         <div id="menu" class="p-0 modal fade" role="dialog" aria-labelledby="menu" aria-hidden="true">
@@ -365,8 +365,8 @@
             <a href="#header" class="smooth-anchor">
                 <i class="icon-arrow-up"></i>
             </a>
-        </div>        
-        
+        </div>
+
         <!-- ==============================================
         Google reCAPTCHA // Put your site key here
         =============================================== -->
@@ -391,7 +391,7 @@
         <script src="{{asset('theme/assets/js/main.js')}}"></script>
 
         <!-- #endregion Global ========================= -->
-  
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script>
         $(function() {
@@ -417,25 +417,25 @@
 
     // List of sentences
     var _CONTENT = [ " Custom Web Design ", "Graphic Design", "Web Application Development", "Support and Maintenance", "Domain Registration & Web Hosting", "E-commerce Solutions",  "SSL Certificates Installation"];
-    
+
     // Current sentence being processed
     var _PART = 0;
-    
-    // Character number of the current sentence being processed 
+
+    // Character number of the current sentence being processed
     var _PART_INDEX = 0;
-    
+
     // Holds the handle returned from setInterval
     var _INTERVAL_VAL;
-    
+
     // Element that holds the text
     var _ELEMENT = document.querySelector("#text");
-    
+
     // Implements typing effect
-    function Type() { 
+    function Type() {
         var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
         _ELEMENT.innerHTML = text;
         _PART_INDEX++;
-    
+
         // If full sentence has been displayed then start to delete the sentence after some time
         if(text === _CONTENT[_PART]) {
             clearInterval(_INTERVAL_VAL);
@@ -444,34 +444,34 @@
             }, 1000);
         }
     }
-    
+
     // Implements deleting effect
     function Delete() {
         var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
         _ELEMENT.innerHTML = text;
         _PART_INDEX--;
-    
+
         // If sentence has been deleted then start to display the next sentence
         if(text === '') {
             clearInterval(_INTERVAL_VAL);
-    
+
             // If last sentence then display the first one, else move to the next
             if(_PART == (_CONTENT.length - 1))
                 _PART = 0;
             else
                 _PART++;
             _PART_INDEX = 0;
-    
+
             // Start to display the next sentence after some time
             setTimeout(function() {
                 _INTERVAL_VAL = setInterval(Type, 100);
             }, 200);
         }
     }
-    
+
     // Start the typing effect on load
     _INTERVAL_VAL = setInterval(Type, 100);
-    
+
     </script>
 
     @include('front.schema')
